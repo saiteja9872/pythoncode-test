@@ -2,10 +2,14 @@ node {
   stage('SCM') {
     checkout scm
   }
-  stage('SonarQube Analysis') {
-    def scannerHome = tool 'SonarScanner';
-    withSonarQubeEnv() {
-      sh "${scannerHome}/bin/sonar-scanner"
+  stage("SonarQube analysis") {
+        steps {
+            script {
+                def scannerHome = tool 'SonarQube Scanner';
+                withSonarQubeEnv('SonarQube Server') {
+                    sh 'mvn clean package sonar:sonar'
+                }
+            }
+        }
     }
-  }
 }
