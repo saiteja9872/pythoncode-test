@@ -2,14 +2,10 @@ node {
   stage('SCM') {
     checkout scm
   }
-  stage("SonarQube analysis") {
-        steps {
-            script {
-                def scannerHome = tool 'SonarQube Scanner';
-                withSonarQubeEnv('SonarQube Server') {
-                    sh 'mvn clean package sonar:sonar'
-                }
-            }
-        }
+  stage('SonarQube Analysis') {
+    def mvn = tool 'Default Maven';
+    withSonarQubeEnv() {
+      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=pythontestcode"
     }
+  }
 }
