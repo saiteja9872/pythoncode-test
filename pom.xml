@@ -158,7 +158,7 @@ python installed, if they don't need python bindings.
               <goal>exec</goal>
             </goals>
             <configuration>
-              <executable>python</executable>
+              <executable>python3</executable>
               <workingDirectory>${project.build.directory}/generated-sources/python</workingDirectory>
               <arguments>
                 <argument>setup.py</argument>
