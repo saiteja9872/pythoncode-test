@@ -3,7 +3,7 @@ node {
     checkout scm
   }
   stage('SonarQube Analysis') {
-    def scannerHome = tool 'SonarQube Scanner 2.8';
+    def scannerHome = tool 'sonarqube9090';
     withSonarQubeEnv() {
       sh "python3 --version"
     }
