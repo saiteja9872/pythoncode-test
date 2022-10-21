@@ -7,7 +7,7 @@ pipeline {
     stage('Scan') {
       steps {
         withSonarQubeEnv(installationName: 'sonarqube9090') {
-          sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.02155:sonar'
+          sh 'python3 --version clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.02155:sonar'
          }
         }
        }
