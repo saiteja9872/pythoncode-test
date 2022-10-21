@@ -1,6 +1,7 @@
 from setuptools import setup, find_packages
 
 requirements = [l.strip() for l in open('/var/lib/jenkins/workspace/sample_run_pythoncode/pythoncode-test/src/main/resources/requirements.txt').readlines()]
+print("My Requirments are: ", requirements)
 
 setup(
     name='${python_package}',
